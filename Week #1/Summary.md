@@ -270,7 +270,7 @@ K近邻算法的缺点：
 ## Numpy&Pandas
 From [莫烦python](https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/)
 
-[笔记，戳这里](./Week1.ipynb)
+[笔记，戳这里](./Numpy&Pandas.ipynb)
 
 
 
