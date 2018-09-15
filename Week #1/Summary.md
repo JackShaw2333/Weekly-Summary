@@ -3,15 +3,15 @@
 1. 吴恩达的课程：主要关于深度卷积神经网络的实例探究。
 2. CS231N主要关于一些简单的算法及其具体代码实现细节。
 3. Numpy&Pandas入门学习。
-### [网易云课堂 吴恩达 卷积神经网络](https://mooc.study.163.com/learn/2001281004?tid=2001392030#/learn/content)
-#### 2.5 网络中的网络以及1x1卷积
+## [网易云课堂 吴恩达 卷积神经网络](https://mooc.study.163.com/learn/2001281004?tid=2001392030#/learn/content)
+### 2.5 网络中的网络以及1x1卷积
 ![TIM截图20180914092814](screenshots/TIM%E6%88%AA%E5%9B%BE20180914092814.png)
 1x1卷积也称为`Network in network`，因为每一次卷积相当于一个全连接层，对输入层的1x1x信道数切片进行运算。
 它给神经网络添加了一个非线性函数，并能够在保持输入层长宽的基础上改变信道的数量。
 输出结果的信道数等于使用的卷积核的数量。
 1x1卷积在`Inception网络`中得到应用
 
-#### 2.6 谷歌Inception网络简介
+### 2.6 谷歌Inception网络简介
 Inception网络可以代替人工确定卷积层中的卷积核类型，确定是否需要创建卷积层或池化层。
 ![Inception网络](screenshots/TIM%E6%88%AA%E5%9B%BE20180914094011.png)
 以上图为例，输入层为`28x28x192`。
@@ -47,7 +47,7 @@ Inception网络可以代替人工确定卷积层中的卷积核类型，确定�
 
 
 
-#### 2.7 Inception网络
+### 2.7 Inception网络
 Inception模块主要使用之前层的激活或输出作为输入。
 还以28x28x192的输入层为例
 ![TIM截图20180914191812](screenshots/TIM%E6%88%AA%E5%9B%BE20180914151108.png)
@@ -118,7 +118,7 @@ Inception模块主要使用之前层的激活或输出作为输入。
 
 
 
-#### 2.8 使用开源的实现方案
+### 2.8 使用开源的实现方案
 搭建计算机视觉网络比较好的方式是使用自己感兴趣的框架，到Github上下载开源的实现。这样做可以节省许多从头开始训练网络的时间。我们就可以利用这些预训练的网络进行迁移学习，运用到我们的网络上去。
 
 
@@ -126,7 +126,7 @@ Inception模块主要使用之前层的激活或输出作为输入。
 
 
 
-#### 2.9 迁移学习
+### 2.9 迁移学习
 做计算机视觉项目时，可以下载开源项目，利用他人已经训练好的网络结构的权重，将之作为预训练，然后转换到自己感兴趣的任务上。
 
 例如，我们要搭建一个识别猫的3分类神经网络。我们可以下载别人预训练好的网络模型。如我们下载了`ImageNet数据集`的网络，这个网络用Softmax输出1000种类别。我们可以删去它的Softmax层，用我们自己的3分类的Softmax层替代。
@@ -155,7 +155,7 @@ Inception模块主要使用之前层的激活或输出作为输入。
 如果有大量数据，不要仅仅训练一个Softmax层，最好训练一个中等深度的网络。包含最终要用的网络的后面几层。
 如果数据量足够大，可以完全自己训练。
 
-#### 2.10 数据扩充
+### 2.10 数据扩充
 计算机视觉的一个特点：数据越多结果可能越好。
 计算机视觉的一个问题：数据不够
 
@@ -206,7 +206,7 @@ PCA增强算法将会使图片的RGB值趋向平均。如图片呈现紫色，�
 与构建神经网络相同，数据增强也有许多超参数需要设置。推荐的方法是使用别人的开源实现。
 
 
-#### 2.11 计算机视觉现状
+### 2.11 计算机视觉现状
 
 
 
@@ -246,13 +246,13 @@ PCA增强算法将会使图片的RGB值趋向平均。如图片呈现紫色，�
 
 
 
-### 斯坦福CS231N课程
+## 斯坦福CS231N课程
 
-#### 2.1 图像分类 - 数据驱动方法
+### 2.1 图像分类 - 数据驱动方法
  关于K近邻算法，要防止过拟合现象的产生，K需要适当取大于1的数。
  K近邻算法的缺点在于训练快而预测慢，与实际需求冲突
 
-#### 2.2 图像分类 - K最近邻算法
+### 2.2 图像分类 - K最近邻算法
 L1(Manhattan)距离
 ![$$d_1(I_1,I_2)=\sum_p|I_1^p-I_2^p|$$](http://latex.codecogs.com/gif.latex?\\$$d_1(I_1,I_2)=\sum_p|I_1^p-I_2^p|$$)​
 
@@ -267,167 +267,10 @@ K近邻算法的缺点：
 2. L1和L2距离算法不适合表示图像之间的相似度。
 3. 需要训练点分布得尽可能密集，这样导致训练数据成倍增加，尤其在高维时所需的数据很大。
 
-### Numpy
+## Numpy&Pandas
 From [莫烦python](https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/)
 
-#### 2.2 创建array
-```python
-import numpy as np
-#创建一个array
-a = np.array([1,2,3])
-
-#指明array元素的数据类型
-a = np.array([1,2,3], dtype=np.int64)
-
-#0元素矩阵
-a = np.zeros((3,4))
-
-#单位矩阵
-a = np.ones((3,4))
-
-#数据接近0的矩阵
-a = np.empty()
-
-#按指定范围创建数据
-a = np.arange(12).reshape(3,4)
-
-#创建线段
-a = np.linspace(start, end, numbers).reshape(3,4)
-
-
-```
-
-#### 2.3&2.4 矩阵的基本运算
-```python
-#a和b对应元素相乘
-c=a*b
-
-#a于b矩阵相乘
-c_dot = np.dot(a, b)
-c_dot = a.dot(b)
-
-#max(), min(), sum()
-print(np.sum(a, axis = 0)
-#axis = 0时以列为查找单元，axis = 1时以行为查找单元
-#总之，axis=0代表跨行，=1代表跨列
-```
-
-#### 2.5 numpy的索引
-```python
-np.mean(A) 
-np.average(A) 
-A.mean() #求平均值
-
-A.median() #求中位数
-
-np.cumsum(A) #累加函数
-
-np.diff(A) #累差
-
-np.sort(A) #排序
-
-np.transpose(A) #转置
-
-A.T #转置
-
-#把矩阵展开成1行
-A.flatten()
-
-for item in A.flat:
-  print(item)
-```
-
-#### 2.6 numpy的array合并
-```python
-A = np.array([1,1,1])
-B = np.array([2,2,2])
-
-C = np.vstack((A,B)) #竖直合并
-D = np.hstack((A,B)) #水平合并
-
-#将行序列转化为列序列
-A = np.array([1,1,1]) #shape = (3,)
-print(A[np.newaxis,:]) #shape = (3,1)
-
-#多个array合并
-C = np.concatenate((A,B,B,A),axis=0) #竖向合并
+[笔记，戳这里](./Week1.ipynb)
 
 
 
-```
-
-#### 2.7 array的分割
-```python
-A = np.arange(12).reshape((3,4))
-print(np.split(A, 2, axis=1)
-
-np.hsplit(A, 2) #竖向分割
-np.vsplit(A, 3) #横向分割
-```
-
-#### 2.8 copy&deep copy
-```python
-a = np.arange(4)
-b = a #b为a的引用，b就是a
-
-b = a.copy() #赋值
-```
-
-#### P.S. numpy.random
-```python
-import numpy as np
-np.random.rand(d1,d2,...,dn) #根据指定维度生成[0,1)之间的数据
-
-np.random.randn(d1,d2,...,dn) #根据指定维度生成按标准正态分布的数据
-
-np.random.randint(low, high=None, size=None, dtype='l')  #返回在[low, high)随机整数，默认数据类型np.int。若high没填写，默认生成随机数[0, low)
-
-np.random.random(size=None) #生成[0, 1)之间的浮点数
-
-np.random.choice(a, size=None, replace=True, p=None) #从给定的一位数组中生成随机数
-#当replace=False时，生成的随机数不能重复
-#参数p为概率，p的长度与a一致，且p的数据之和为1
-
-np.random.seed() #使随机数可预测。相同的seed，每次生成的随机数相同。
-
-
-```
-
-### Pandas
-#### 3.1 pandas基本介绍
-```python
-import pandas as pd
-import numpy as np
-#创建了一个pandas序列
-s = pd.Series([1,3,6,np.nan,44,1])
-
-#创建DataFrame
-df = pd.DataFrame(np.random.randn(3,4),index=X,columns=['a','b','c','d'])
-
-df.dtypes #数据类型
-df.index #df的行索引
-df.columns #df的列索引
-df.describe() #简单计算数据（如平均值，方差 etc）
-df.T #DataFrame转置
-
-df.sort_index(axis=1,ascending=False) #按索引排降序
-
-df.sort_values(by='索引') #对值排序
-
-```
-#### 3.2 pandas选择数据
-```python
-#初始化代操作数据
-dates = pd.date_range('20130101',periods=6)
-df = pd.DataFrame(np.arange(24).reshape((6,4)),index=dates,columns=['A','B','C','D'])
-
-df['A'] or df.A #取A索引的数据
-
-
-```
-
-
-## Programs
-
-
-## Summary
